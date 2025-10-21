@@ -28,14 +28,14 @@ export default function CSClubPage() {
 
 
         // Charger les données depuis le backend
-    useEffect(() => {
+useEffect(() => {
       const fetchData = async () => {
         try {
-          const [membersRes, formationsRes, newsRes] = await Promise.all([
-            axios.get("http://localhost:5000/api/members"),
-            axios.get("http://localhost:5000/api/formations"),
-            axios.get("http://localhost:5000/api/news"),
-          ]);
+                  const [membersRes, formationsRes, newsRes] = await Promise.all([
+          axios.get("https://csbackendv2-production.up.railway.app/api/members"),
+          axios.get("https://csbackendv2-production.up.railway.app/api/formations"),
+          axios.get("https://csbackendv2-production.up.railway.app/api/news"),
+        ]);
 
           setMembers(membersRes.data);
           setFormations(formationsRes.data);
