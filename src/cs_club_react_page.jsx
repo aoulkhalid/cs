@@ -26,6 +26,8 @@ export default function CSClubPage() {
     const [formations, setFormations] = useState([]);
     const [newsList, setNewsList] = useState([]);
 
+  const [menuOpen, setMenuOpen] = useState(false);
+
 
         // Charger les données depuis le backend
 useEffect(() => {
