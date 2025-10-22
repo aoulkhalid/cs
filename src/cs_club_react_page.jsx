@@ -124,12 +124,13 @@ useEffect(() => {
           </a>
       
           {/* Bouton menu mobile */}
-          <button
+                    <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden text-gray-300 hover:text-indigo-400 transition text-2xl"
           >
             {menuOpen ? <FaTimes /> : <span>&#9776;</span>}
           </button>
+         
       
           {/* Liens Desktop */}
           <ul className="hidden md:flex gap-6 text-sm font-medium">
