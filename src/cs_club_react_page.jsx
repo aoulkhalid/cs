@@ -170,35 +170,6 @@ useEffect(() => {
       </nav>
 
     
-      
-      {/* NAVBAR */}
-      <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-          <a href="#home" className="flex items-center gap-2 text-xl font-bold text-white">
-            <span className="text-indigo-500">CS Club</span>
-            <span className="hidden sm:inline text-gray-400 text-sm">
-              Ibn Tofail University
-            </span>
-          </a>
-          <ul className="hidden md:flex gap-6 text-sm font-medium">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  className={`transition ${
-                    active === link.href
-                      ? "text-indigo-400 font-semibold"
-                      : "text-gray-300 hover:text-indigo-400"
-                  }`}
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
-
             {/* HERO SLIDER */}
       <section id="home" className="relative h-[90vh] pt-20 overflow-hidden">
         {slides.map((slide, index) => (
