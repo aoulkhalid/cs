@@ -112,6 +112,65 @@ useEffect(() => {
 
   return (
     <div className="bg-gray-950 text-gray-200">
+
+          <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-50">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+          {/* Logo */}
+          <a href="#home" className="flex items-center gap-2 text-xl font-bold text-white">
+            <span className="text-indigo-500">CS Club</span>
+            <span className="hidden sm:inline text-gray-400 text-sm">
+              Ibn Tofail University
+            </span>
+          </a>
+      
+          {/* Bouton menu mobile */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden text-gray-300 hover:text-indigo-400 transition text-2xl"
+          >
+            {menuOpen ? <FaTimes /> : <span>&#9776;</span>}
+          </button>
+      
+          {/* Liens Desktop */}
+          <ul className="hidden md:flex gap-6 text-sm font-medium">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <a
+                  href={link.href}
+                  className={`transition ${
+                    active === link.href
+                      ? "text-indigo-400 font-semibold"
+                      : "text-gray-300 hover:text-indigo-400"
+                  }`}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      
+        {/* Menu Mobile déroulant */}
+        {menuOpen && (
+          <div className="md:hidden bg-gray-900 border-t border-gray-800 px-6 py-4 space-y-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setMenuOpen(false)} // ferme le menu quand on clique
+                className={`block text-gray-300 hover:text-indigo-400 transition ${
+                  active === link.href && "text-indigo-400 font-semibold"
+                }`}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        )}
+      </nav>
+
+    
+      
       {/* NAVBAR */}
       <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
