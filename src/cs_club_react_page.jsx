@@ -113,7 +113,7 @@ useEffect(() => {
 
 
   return (
-                <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-[9999]">
+               <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-[9999]">
   <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
     {/* Logo */}
     <a href="#home" className="flex items-center gap-2 text-xl font-bold text-white">
