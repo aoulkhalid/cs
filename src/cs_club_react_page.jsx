@@ -129,7 +129,7 @@ useEffect(() => {
 
                     <button
             onClick={() => setMenuOpen(!menuOpen)}
-             className="lg:hidden text-gray-300 hover:text-indigo-400 transition text-3xl"
+             className="text-gray-300 hover:text-indigo-400 transition text-3xl"
 
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
