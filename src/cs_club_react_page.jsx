@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaInstagram, FaLinkedin, FaEnvelope, FaWhatsapp, FaTimes } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaEnvelope, FaWhatsapp, FaTimes , FaBars } from "react-icons/fa";
 
 
 
