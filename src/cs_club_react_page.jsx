@@ -116,27 +116,36 @@ useEffect(() => {
                <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-[9999]">
   <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
     {/* Logo */}
-    <a href="#home" className="flex items-center gap-2 text-xl font-bold text-white">
+    <a
+      href="#home"
+      className="flex items-center gap-2 text-xl font-bold text-white"
+    >
       <span className="text-indigo-500">CS Club</span>
-      <span className="hidden sm:inline text-gray-400 text-sm">Ibn Tofail University</span>
+      <span className="hidden sm:inline text-gray-400 text-sm">
+        Ibn Tofail University
+      </span>
     </a>
 
-    {/* Bouton menu pour mobile/tablette */}
+    {/*  Bouton menu visible sur mobile + tablette */}
     <button
       onClick={() => setMenuOpen(!menuOpen)}
-      className="text-gray-300 hover:text-indigo-400 transition text-3xl lg:hidden"
+      className="block lg:hidden text-gray-300 hover:text-indigo-400 transition text-3xl"
     >
       {menuOpen ? <FaTimes /> : <FaBars />}
     </button>
 
-    {/* Liens Desktop */}
+    {/* Liens Desktop (affichés uniquement sur grand écran) */}
     <ul className="hidden lg:flex gap-6 text-sm font-medium">
       {navLinks.map((link) => (
         <li key={link.name}>
           <a
             href={link.href}
             onClick={() => setActive(link.href)}
-            className={`transition ${active === link.href ? "text-indigo-400 font-semibold" : "text-gray-300 hover:text-indigo-400"}`}
+            className={`transition ${
+              active === link.href
+                ? "text-indigo-400 font-semibold"
+                : "text-gray-300 hover:text-indigo-400"
+            }`}
           >
             {link.name}
           </a>
@@ -145,9 +154,9 @@ useEffect(() => {
     </ul>
   </div>
 
-  {/* Menu mobile/tablette */}
+  {/*  Menu mobile + tablette */}
   {menuOpen && (
-    <div className="lg:hidden bg-gray-900 border-t border-gray-800 px-6 py-4 space-y-4">
+    <div className="block lg:hidden bg-gray-900 border-t border-gray-800 px-6 py-4 space-y-4">
       {navLinks.map((link) => (
         <a
           key={link.name}
@@ -156,7 +165,9 @@ useEffect(() => {
             setMenuOpen(false);
             setActive(link.href);
           }}
-          className={`block text-gray-300 hover:text-indigo-400 transition ${active === link.href ? "text-indigo-400 font-semibold" : ""}`}
+          className={`block text-gray-300 hover:text-indigo-400 transition ${
+            active === link.href && "text-indigo-400 font-semibold"
+          }`}
         >
           {link.name}
         </a>
@@ -164,6 +175,7 @@ useEffect(() => {
     </div>
   )}
 </nav>
+
 
     
             {/* HERO SLIDER */}
