@@ -113,7 +113,7 @@ useEffect(() => {
 
 
   return (
-               <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-[9999]">
+              <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-[9999]">
   <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
     {/* Logo */}
     <a
@@ -126,13 +126,13 @@ useEffect(() => {
       </span>
     </a>
 
-    {/*  Bouton menu visible sur mobile + tablette */}
+    {/* Bouton menu visible uniquement sur mobile */}
     <button
-  onClick={() => setMenuOpen(!menuOpen)}
-  className="md:hidden text-gray-300 hover:text-indigo-400 transition text-3xl p-2"
->
-  {menuOpen ? <FaTimes /> : <FaBars />}
-</button>
+      onClick={() => setMenuOpen(!menuOpen)}
+      className="lg:hidden text-gray-300 hover:text-indigo-400 transition text-3xl p-2"
+    >
+      {menuOpen ? <FaTimes /> : <FaBars />}
+    </button>
 
     {/* Liens Desktop (affichés uniquement sur grand écran) */}
     <ul className="hidden lg:flex gap-6 text-sm font-medium">
@@ -154,9 +154,9 @@ useEffect(() => {
     </ul>
   </div>
 
-  {/*  Menu mobile + tablette */}
+  {/* Menu mobile */}
   {menuOpen && (
-    <div className="block lg:hidden bg-gray-900 border-t border-gray-800 px-6 py-4 space-y-4">
+    <div className="lg:hidden bg-gray-900 border-t border-gray-800 px-6 py-4 space-y-4">
       {navLinks.map((link) => (
         <a
           key={link.name}
@@ -175,7 +175,6 @@ useEffect(() => {
     </div>
   )}
 </nav>
-
 
     
             {/* HERO SLIDER */}
