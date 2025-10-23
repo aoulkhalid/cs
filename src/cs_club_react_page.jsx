@@ -113,70 +113,69 @@ useEffect(() => {
 
 
   return (
-              <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-[9999]">
-  <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-    {/* Logo */}
-    <a
-      href="#home"
-      className="flex items-center gap-2 text-xl font-bold text-white"
-    >
-      <span className="text-indigo-500">CS Club</span>
-      <span className="hidden sm:inline text-gray-400 text-sm">
-        Ibn Tofail University
-      </span>
-    </a>
+                  <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-[9999]">
+          <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+            {/* Logo */}
+            <a
+              href="#home"
+              className="flex items-center gap-2 text-xl font-bold text-white"
+            >
+              <span className="text-indigo-500">CS Club</span>
+              <span className="hidden sm:inline text-gray-400 text-sm">
+                Ibn Tofail University
+              </span>
+            </a>
+        
+            {/* Liens Desktop */}
+            <ul className="hidden lg:flex gap-6 text-sm font-medium">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    onClick={() => setActive(link.href)}
+                    className={`transition ${
+                      active === link.href
+                        ? "text-indigo-400 font-semibold"
+                        : "text-gray-300 hover:text-indigo-400"
+                    }`}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+        
+            {/* Bouton Menu Mobile */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="lg:hidden text-gray-300 hover:text-indigo-400 transition text-3xl p-2"
+            >
+              {menuOpen ? <FaTimes /> : <FaBars />}
+            </button>
+          </div>
+        
+          {/* Menu Mobile */}
+          {menuOpen && (
+            <div className="lg:hidden bg-gray-900 border-t border-gray-800 px-6 py-4 space-y-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setActive(link.href);
+                  }}
+                  className={`block text-gray-300 hover:text-indigo-400 transition ${
+                    active === link.href && "text-indigo-400 font-semibold"
+                  }`}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          )}
+        </nav>
 
-    {/* Bouton menu visible uniquement sur mobile */}
-    <button
-      onClick={() => setMenuOpen(!menuOpen)}
-      className="lg:hidden text-gray-300 hover:text-indigo-400 transition text-3xl p-2"
-    >
-      {menuOpen ? <FaTimes /> : <FaBars />}
-    </button>
-
-    {/* Liens Desktop (affichés uniquement sur grand écran) */}
-    <ul className="hidden lg:flex gap-6 text-sm font-medium">
-      {navLinks.map((link) => (
-        <li key={link.name}>
-          <a
-            href={link.href}
-            onClick={() => setActive(link.href)}
-            className={`transition ${
-              active === link.href
-                ? "text-indigo-400 font-semibold"
-                : "text-gray-300 hover:text-indigo-400"
-            }`}
-          >
-            {link.name}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
-
-  {/* Menu mobile */}
-  {menuOpen && (
-    <div className="lg:hidden bg-gray-900 border-t border-gray-800 px-6 py-4 space-y-4">
-      {navLinks.map((link) => (
-        <a
-          key={link.name}
-          href={link.href}
-          onClick={() => {
-            setMenuOpen(false);
-            setActive(link.href);
-          }}
-          className={`block text-gray-300 hover:text-indigo-400 transition ${
-            active === link.href && "text-indigo-400 font-semibold"
-          }`}
-        >
-          {link.name}
-        </a>
-      ))}
-    </div>
-  )}
-</nav>
-
-    
             {/* HERO SLIDER */}
       <section id="home" className="relative h-[90vh] pt-20 overflow-hidden">
         {slides.map((slide, index) => (
