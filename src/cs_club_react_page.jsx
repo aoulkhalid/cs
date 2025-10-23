@@ -129,7 +129,7 @@ useEffect(() => {
     {/*  Bouton menu visible sur mobile + tablette */}
     <button
       onClick={() => setMenuOpen(!menuOpen)}
-      className="block lg:hidden text-gray-300 hover:text-indigo-400 transition text-3xl"
+      className="md:hidden text-gray-300 hover:text-indigo-400 transition text-2xl"
     >
       {menuOpen ? <FaTimes /> : <FaBars />}
     </button>
