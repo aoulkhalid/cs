@@ -39,9 +39,10 @@ useEffect(() => {
           axios.get("https://csbackend-v2.vercel.app/api/news"),
         ]);
 
-          setMembers(membersRes.data);
-          setFormations(formationsRes.data);
-          setNewsList(newsRes.data);
+        setMembers(membersRes.data.members);
+        setFormations(formationsRes.data.formations);
+        setNewsList(newsRes.data.news);
+
         } catch (error) {
           console.error("Erreur lors du chargement des données :", error);
         }
