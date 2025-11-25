@@ -114,7 +114,8 @@ useEffect(() => {
 
   return (
 
-  <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-[9999]">
+  {/* NAVBAR RESPONSIVE */}
+<nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-[9999]">
   <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
     {/* Logo */}
     <a href="#home" className="flex items-center gap-2 text-xl font-bold text-white">
@@ -161,89 +162,54 @@ useEffect(() => {
   )}
 </nav>
 
-    
-    <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-[9999]">
-  <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-    {/* Logo */}
-    <a
-      href="#home"
-      className="flex items-center gap-2 text-xl font-bold text-white"
+{/* HERO SLIDER */}
+<section id="home" className="relative h-[90vh] pt-20 overflow-hidden">
+  {slides.map((slide, index) => (
+    <motion.div
+      key={index}
+      className={`absolute inset-0 transition-opacity duration-1000 ${
+        index === current ? "opacity-100" : "opacity-0"
+      }`}
     >
-      <span className="text-indigo-500">CS Club</span>
-      <span className="hidden sm:inline text-gray-400 text-sm">
-        Ibn Tofail University
-      </span>
-    </a>
+      <img
+        src={slide.src}
+        alt={slide.caption}
+        className="w-full h-full object-cover brightness-50"
+      />
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-extrabold mb-4"
+        >
+          {slide.caption}
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="max-w-2xl text-gray-200 text-lg"
+        >
+          {slide.paragraph}
+        </motion.p>
+      </div>
+    </motion.div>
+  ))}
 
-    {/* Liens Desktop et Mobile toujours visibles */}
-    <ul className="flex gap-6 text-sm font-medium">
-      {navLinks.map((link) => (
-        <li key={link.name}>
-          <a
-            href={link.href}
-            onClick={() => setActive(link.href)}
-            className={`transition ${
-              active === link.href
-                ? "text-indigo-400 font-semibold"
-                : "text-gray-300 hover:text-indigo-400"
-            }`}
-          >
-            {link.name}
-          </a>
-        </li>
-      ))}
-    </ul>
+  <div className="absolute bottom-10 w-full flex justify-center gap-3">
+    {slides.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => setCurrent(index)}
+        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+          current === index ? "bg-indigo-500 scale-125" : "bg-gray-500 opacity-70 hover:opacity-100"
+        }`}
+      ></button>
+    ))}
   </div>
-</nav>
+</section>
 
-            {/* HERO SLIDER */}
-      <section id="home" className="relative h-[90vh] pt-20 overflow-hidden">
-        {slides.map((slide, index) => (
-          <motion.div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === current ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <img
-              src={slide.src}
-              alt={slide.caption}
-              className="w-full h-full object-cover brightness-50"
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-4xl md:text-5xl font-extrabold mb-4"
-              >
-                {slide.caption}
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-                className="max-w-2xl text-gray-200 text-lg"
-              >
-                {slide.paragraph}
-              </motion.p>
-            </div>
-          </motion.div>
-        ))}
-
-        
-        <div className="absolute bottom-10 w-full flex justify-center gap-3">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrent(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                current === index ? "bg-indigo-500 scale-125" : "bg-gray-500 opacity-70 hover:opacity-100"
-              }`}
-            ></button>
-          ))}
-        </div>
-      </section>
 
             {/* ABOUT */}
       <motion.section
