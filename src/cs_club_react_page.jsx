@@ -34,11 +34,13 @@ export default function CSClubPage() {
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const [membersRes, formationsRes, newsRes] = await Promise.all([
-        axios.get("https://csbackend-v2.vercel.app/api/members"),
-        axios.get("https://csbackend-v2.vercel.app/api/formations"),
-        axios.get("https://csbackend-v2.vercel.app/api/news"),
-      ]);
+          const [membersRes, formationsRes, newsRes] = await Promise.all([
+      axios.get("https://csbackend-v2.vercel.app/api/members"),
+      axios.get("https://csbackend-v2.vercel.app/api/formations"),
+      axios.get("https://csbackend-v2.vercel.app/api/news"),
+    ]);
+
+      
 
       // Use data directly since API returns arrays
       setMembers(membersRes.data);
