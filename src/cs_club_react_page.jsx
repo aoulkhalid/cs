@@ -113,7 +113,56 @@ useEffect(() => {
 
 
   return (
-                 <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-[9999]">
+
+  <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-[9999]">
+  <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+    {/* Logo */}
+    <a href="#home" className="flex items-center gap-2 text-xl font-bold text-white">
+      <span className="text-indigo-500">CS Club</span>
+      <span className="hidden sm:inline text-gray-400 text-sm">Ibn Tofail University</span>
+    </a>
+
+    {/* Liens Desktop */}
+    <ul className="hidden sm:flex gap-6 text-sm font-medium">
+      {navLinks.map((link) => (
+        <li key={link.name}>
+          <a
+            href={link.href}
+            onClick={() => setActive(link.href)}
+            className={`transition ${active === link.href ? "text-indigo-400 font-semibold" : "text-gray-300 hover:text-indigo-400"}`}
+          >
+            {link.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    {/* Bouton menu mobile */}
+    <button className="sm:hidden text-gray-300" onClick={() => setMenuOpen(!menuOpen)}>
+      {menuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+    </button>
+  </div>
+
+  {/* Menu mobile */}
+  {menuOpen && (
+    <ul className="sm:hidden bg-gray-950/90 flex flex-col gap-4 p-6 border-t border-gray-800">
+      {navLinks.map((link) => (
+        <li key={link.name}>
+          <a
+            href={link.href}
+            onClick={() => setMenuOpen(false)}
+            className={`block text-gray-300 hover:text-indigo-400 ${active === link.href ? "text-indigo-400 font-semibold" : ""}`}
+          >
+            {link.name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</nav>
+
+    
+    <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm border-b border-gray-800 z-[9999]">
   <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
     {/* Logo */}
     <a
