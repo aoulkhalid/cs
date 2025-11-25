@@ -30,26 +30,32 @@ export default function CSClubPage() {
 
 
         // Charger les données depuis le backend
+// Charger les données depuis le backend
 useEffect(() => {
-      const fetchData = async () => {
-        try {
-                  const [membersRes, formationsRes, newsRes] = await Promise.all([
-          axios.get("https://csbackend-v2.vercel.app/api/members"),
-          axios.get("https://csbackend-v2.vercel.app/api/formations"),
-          axios.get("https://csbackend-v2.vercel.app/api/news"),
-        ]);
+  const fetchData = async () => {
+    try {
+      const [membersRes, formationsRes, newsRes] = await Promise.all([
+        axios.get("https://csbackend-v2.vercel.app/api/members"),
+        axios.get("https://csbackend-v2.vercel.app/api/formations"),
+        axios.get("https://csbackend-v2.vercel.app/api/news"),
+      ]);
 
-        setMembers(membersRes.data.members);
-        setFormations(formationsRes.data.formations);
-        setNewsList(newsRes.data.news);
+      // Use data directly since API returns arrays
+      setMembers(membersRes.data);
+      setFormations(formationsRes.data);
+      setNewsList(newsRes.data);
 
-        } catch (error) {
-          console.error("Erreur lors du chargement des données :", error);
-        }
-      };
+      console.log("Members:", membersRes.data);
+      console.log("Formations:", formationsRes.data);
+      console.log("News:", newsRes.data);
 
-      fetchData();
-    }, []);
+    } catch (error) {
+      console.error("Erreur lors du chargement des données :", error);
+    }
+  };
+
+  fetchData();
+}, []);
 
 
   // État pour Member sélectionnée
