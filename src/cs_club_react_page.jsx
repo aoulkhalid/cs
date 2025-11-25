@@ -34,9 +34,9 @@ useEffect(() => {
       const fetchData = async () => {
         try {
                   const [membersRes, formationsRes, newsRes] = await Promise.all([
-          axios.get("https://csbackendv2-production.up.railway.app/api/members"),
-          axios.get("https://csbackendv2-production.up.railway.app/api/formations"),
-          axios.get("https://csbackendv2-production.up.railway.app/api/news"),
+          axios.get("https://csbackend-v2.vercel.app/api/members"),
+          axios.get("https://csbackend-v2.vercel.app/api/formations"),
+          axios.get("https://csbackend-v2.vercel.app/api/news"),
         ]);
 
           setMembers(membersRes.data);
