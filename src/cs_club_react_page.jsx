@@ -35,9 +35,9 @@ useEffect(() => {
   const fetchData = async () => {
     try {
           const [membersRes, formationsRes, newsRes] = await Promise.all([
-      axios.get("https://csbackend-v2.vercel.app/api/members"),
-      axios.get("https://csbackend-v2.vercel.app/api/formations"),
-      axios.get("https://csbackend-v2.vercel.app/api/news"),
+      axios.get("https://csbackend-v2-b6ytx99dz-el-aoulas-projects.vercel.app/api/members"),
+      axios.get("https://csbackend-v2-b6ytx99dz-el-aoulas-projects.vercel.app/api/formations"),
+      axios.get("https://csbackend-v2-b6ytx99dz-el-aoulas-projects.vercel.app/api/news"),
     ]);
 
       
