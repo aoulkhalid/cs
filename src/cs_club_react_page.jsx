@@ -28,16 +28,19 @@ export default function CSClubPage() {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const API_URL = "https://csbackend-33-w3v2.vercel.app";
+
+  
 
         // Charger les données depuis le backend
 // Charger les données depuis le backend
 useEffect(() => {
   const fetchData = async () => {
     try {
-          const [membersRes, formationsRes, newsRes] = await Promise.all([
-      axios.get("https://csbackend-v2-b6ytx99dz-el-aoulas-projects.vercel.app/api/members"),
-      axios.get("https://csbackend-v2-b6ytx99dz-el-aoulas-projects.vercel.app/api/formations"),
-      axios.get("https://csbackend-v2-b6ytx99dz-el-aoulas-projects.vercel.app/api/news"),
+             const [membersRes, formationsRes, newsRes] = await Promise.all([
+      axios.get(`${API_URL}/api/members`),
+      axios.get(`${API_URL}/api/formations`),
+      axios.get(`${API_URL}/api/news`),
     ]);
 
       
